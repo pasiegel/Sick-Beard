@@ -34,6 +34,10 @@ except:
 # We only need this for compiling an EXE and I will just always do that on 2.6+
 if sys.hexversion >= 0x020600F0:
     from multiprocessing import freeze_support  # @UnresolvedImport
+    
+if sys.version_info >= (2, 7, 9):
+    import ssl
+    ssl._create_default_https_context = ssl._create_unverified_context
 
 import locale
 import os
